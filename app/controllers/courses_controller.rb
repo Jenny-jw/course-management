@@ -3,7 +3,7 @@ class CoursesController < ApplicationController
     @courses = Course.all
   end
 
-  def showSingleCourse
+  def show
     @course = Course.find(params[:id])
   end
 end

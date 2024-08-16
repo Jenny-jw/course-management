@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root "courses#index"
 
-  get "/courses", to: "courses#index"
-  get "/courses/:id", to: "courses#showSingleCourse"
+  resources :courses do
+    member do
+      get 'showSingleCourse'
+    end
+  end
 end

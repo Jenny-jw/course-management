@@ -1,0 +1,29 @@
+<%= form_with model: @course do |form| %>
+  <div>
+    <%= form.label :course_name %><br>
+    <%= form.text_field :course_name %>
+    <% @course.errors.full_messages_for(:course_name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :teacher_name %><br>
+    <%= form.text_area :teacher_name %>
+    <% @course.errors.full_messages_for(:teacher_name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :course_description %><br>
+    <%= form.text_area :course_description %>
+    <% @course.errors.full_messages_for(:course_description).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

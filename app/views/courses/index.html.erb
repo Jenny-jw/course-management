@@ -2,8 +2,10 @@
 
 <ul>
     <% @courses.each do |course| %>
-      <li>
-        <%= course.course_name %>
+        <li>
+            <a href="/courses/<%= course.id %>">
+                <%= course.course_name %>
+            </a>
         </li>
     <% end %>
 </ul>

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  unit_name: MyString
+  unit_description: MyText
+  unit_content: MyText
+  course: one
+
+two:
+  unit_name: MyString
+  unit_description: MyText
+  unit_content: MyText
+  course: two

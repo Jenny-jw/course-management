@@ -1,4 +1,7 @@
 class Course < ApplicationRecord
+  has_many :units, -> { order(:position) }, dependent: :destroy
+  accepts_nested_attributes_for :units, allow_destroy: true
+
   validates :course_name,
             presence: true,
             length: { maximum: 50 },

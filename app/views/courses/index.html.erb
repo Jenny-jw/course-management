@@ -5,6 +5,11 @@
         <li>
             <%= link_to course.course_name, course %>
         </li>
+        <ul>
+            <% course.units.each do |unit| %>
+                <li><%= unit.unit_name %></li>
+            <% end %>
+        </ul>
     <% end %>
 </ul>
 

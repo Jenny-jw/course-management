@@ -23,24 +23,6 @@
     <% end %>
   </div>
 
-  <%= form.fields_for :units do |unit_form| %>
-    <div>
-      <%= unit_form.label :unit_name %>
-      <%= unit_form.text_field :unit_name %>
-
-      <%= unit_form.label :unit_description %>
-      <%= unit_form.text_area :unit_description %>
-
-      <%= unit_form.label :unit_content %>
-      <%= unit_form.text_area :unit_content %>
-
-      <%= unit_form.hidden_field :position %>
-      <%= unit_form.check_box :_destroy %> Remove
-    </div>
-  <% end %>
-
-  <%# <%= link_to_add_fields "Add Unit", form, :units %> %>
-
   <div>
     <%= form.submit %>
   </div>

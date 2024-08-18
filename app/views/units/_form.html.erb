@@ -1,0 +1,20 @@
+<%= form_with model: [ course, course.units.build ] do |form| %>
+  <p>
+    <%= form.label :unit_name %><br>
+    <%= form.text_field :unit_name %>
+  </p>
+
+  <p>
+    <%= form.label :unit_description %><br>
+    <%= form.text_area :unit_description %>
+  </p>
+
+  <p>
+    <%= form.label :unit_content %><br>
+    <%= form.text_area :unit_content %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

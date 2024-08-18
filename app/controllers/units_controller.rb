@@ -5,11 +5,27 @@ class UnitsController < ApplicationController
     redirect_to course_path(@course)
   end
 
+  def edit
+    @course = Course.find(params[:course_id])
+    @unit = @course.units.find(params[:id])
+  end
+
+  def update
+    @course = Course.find(params[:course_id])
+    @unit = @course.units.find(params[:id])
+
+    if @unit.update(unit_params)
+      redirect_to course_path(@course)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def destroy
     @course = Course.find(params[:course_id])
     @unit = @course.units.find(params[:id])
     @unit.destroy
-    redirect_to article_path(@course), status: :see_other
+    redirect_to course_path(@course), status: :see_other
   end
 
   private

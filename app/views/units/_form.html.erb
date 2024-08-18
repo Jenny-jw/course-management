@@ -1,4 +1,4 @@
-<%= form_with model: [ course, course.units.build ] do |form| %>
+<%= form_with model: [ course, unit ] do |form| %>
   <p>
     <%= form.label :unit_name %><br>
     <%= form.text_field :unit_name %>

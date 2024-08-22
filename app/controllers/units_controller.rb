@@ -21,6 +21,13 @@ class UnitsController < ApplicationController
     end
   end
 
+  def sort
+    params[:unit].each_with_index do |id, index|
+      Unit.where(id: id).update_all(position: index + 1)
+    end
+    head :ok
+  end
+
   def destroy
     @course = Course.find(params[:course_id])
     @unit = @course.units.find(params[:id])

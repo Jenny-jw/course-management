@@ -1,23 +1,28 @@
 <h1><%= @course.course_name %></h1>
 
-<hr>
-
 <h2>Course Description</h2>
 <p><%= @course.course_description %></p>
 
 <h2>Teacher</h2>
 <p><%= @course.teacher_name %></p>
 
+<hr>
+
 <h2>Units</h2>
-<%# <%= render @course.units %>
-<ul>
-  <% @units.each do |unit| %>
+<ul id="sortable" data-url="<%= sort_course_units_path(@course) %>">
+  <% @units.order(:position).each do |unit| %>
     <%= render partial: "units/unit", locals: { unit: unit, course: @course } %>
   <% end %>
 </ul>
 
-<hr>
-
-<h2>Add/Edit Unit</h2>
+<h3>Add a Unit</h3>
 <%= render partial: "units/form", locals: { course: @course, unit: @unit || @course.units.build } %>
 
+<hr>
+
+<div>
+<%= link_to "Delete course", course_path(@course),
+  method: :delete,
+  data: { confirm: "Are you sure you want to delete this course?" }
+%>
+</div>

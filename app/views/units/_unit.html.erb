@@ -1,19 +1,19 @@
-<li>
-    <p>
-      <strong><%= unit.unit_name %></strong><br>
-    </p>
-    <p>
-      <strong>Description: </strong> <%= unit.unit_description %><br>
-    </p>
-    <p>
-      <strong>Content: </strong> <%= unit.unit_content %><br>
-    </p>
-    <ul>
-      <li><%= link_to "Edit Unit", edit_course_unit_path(@course, unit) %></li>
-      <li><%= link_to "Delete Unit", course_unit_path(@course, unit),
-        method: :delete,
-        data: { confirm: "Are you sure you want to delete this unit?" }
-      %>
-      </li>
-    </ul>
+<li id="unit_<%= unit.id %>" class="ui-state-default">
+  <p>
+    <strong><%= unit.unit_name %></strong><br>
+  </p>
+  <p>
+    <strong>Description: </strong> <%= unit.unit_description %><br>
+  </p>
+  <p>
+    <strong>Content: </strong> <%= unit.unit_content %><br>
+  </p>
+  <ul>
+    <li><%= link_to "Edit Unit", edit_course_unit_path(@course, unit) %></li>
+    <li><%= link_to "Delete Unit", course_unit_path(@course, unit),
+      method: :delete,
+      data: { confirm: "Are you sure you want to delete this unit?", turbo: false }
+    %>
+    </li>
+  </ul>
 </li>

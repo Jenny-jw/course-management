@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :courses do
     resources :units do
       collection do
-        post :sort
+        patch :sort
       end
     end
   end

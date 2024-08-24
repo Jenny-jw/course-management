@@ -8,7 +8,7 @@
             </li>
             <% if course %>
                 <ul class="units" data-update-url="<%= sort_course_units_path(course) %>">
-                    <% course.units.each do |unit| %>
+                    <% course.units.order(:position).each do |unit| %>
                         <li id="<%= unit.id %>">
                             <%= unit.unit_name %>
                         </li>

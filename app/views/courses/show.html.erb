@@ -11,7 +11,9 @@
 <h2>Units</h2>
 <ul id="sortable" data-url="<%= sort_course_units_path(@course) %>">
   <% @units.order(:position).each do |unit| %>
-    <%= render partial: "units/unit", locals: { unit: unit, course: @course } %>
+    <div data-id="<%= unit.id %>">
+      <%= render partial: "units/unit", locals: { unit: unit, course: @course } %>
+    </div>
   <% end %>
 </ul>
 
@@ -22,7 +24,7 @@
 
 <div>
 <%= link_to "Delete course", course_path(@course),
-  method: :delete,
-  data: { confirm: "Are you sure you want to delete this course?" }
+  data: { turbo_method: :delete,
+  turbo_confirm: "Are you sure you want to delete this course?" }
 %>
 </div>

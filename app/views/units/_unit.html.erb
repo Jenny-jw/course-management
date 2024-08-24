@@ -12,7 +12,8 @@
     <li><%= link_to "Edit Unit", edit_course_unit_path(@course, unit) %></li>
     <li><%= link_to "Delete Unit", course_unit_path(@course, unit),
       method: :delete,
-      data: { confirm: "Are you sure you want to delete this unit?", turbo: false }
+      data: { confirm: "Are you sure you want to delete this unit?" },
+      turbo: false
     %>
     </li>
   </ul>

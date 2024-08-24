@@ -8,3 +8,4 @@ pin "jquery", to: "https://code.jquery.com/jquery-3.6.0.min.js"
 pin "jquery-ui", to: "https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
 pin "units_sortable"
 pin_all_from "app/javascript/controllers", under: "controllers"
+pin "@rails/ujs", to: "@rails--ujs.js" # @7.1.3

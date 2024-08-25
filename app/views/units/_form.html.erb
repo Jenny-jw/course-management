@@ -1,20 +1,29 @@
 <%= form_with model: [ course, unit ] do |form| %>
-  <p>
+  <div>
     <%= form.label :unit_name %><br>
     <%= form.text_field :unit_name %>
-  </p>
+    <% unit.errors.full_messages_for(:unit_name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
 
-  <p>
+  <div>
     <%= form.label :unit_description %><br>
     <%= form.text_area :unit_description %>
-  </p>
+    <% unit.errors.full_messages_for(:unit_description).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
 
-  <p>
+  <div>
     <%= form.label :unit_content %><br>
     <%= form.text_area :unit_content %>
-  </p>
+    <% unit.errors.full_messages_for(:unit_content).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
 
-  <p>
+  <div>
     <%= form.submit %>
-  </p>
+  </div>
 <% end %>

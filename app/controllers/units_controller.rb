@@ -1,8 +1,14 @@
 class UnitsController < ApplicationController
   def create
     @course = Course.find(params[:course_id])
-    @unit = @course.units.create(unit_params)
-    redirect_to course_path(@course)
+    @unit = @course.units.new(unit_params)
+
+    if @unit.save
+      redirect_to course_path(@course)
+    else
+      @units = @course.units
+      render "courses/show"
+    end
   end
 
   def edit

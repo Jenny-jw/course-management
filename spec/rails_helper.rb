@@ -5,6 +5,7 @@ require_relative '../config/environment'
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
+require 'shoulda/matchers'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -30,10 +31,6 @@ rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
 RSpec.configure do |config|
-  # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  # config.fixture_paths = [
-  #   Rails.root.join('spec/fixtures')
-  # ]
   config.include FactoryBot::Syntax::Methods if defined?(FactoryBot) # Remove if not using FactoryBot
   config.use_transactional_fixtures = true
 
@@ -43,4 +40,14 @@ RSpec.configure do |config|
 
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
+
+  Shoulda::Matchers.configure do |with|
+    with.integrate do |config|
+      # Choose which test framework to integrate with
+      config.test_framework :rspec
+      
+      # Choose one or more libraries:
+      config.library :rails
+    end
+  end
 end

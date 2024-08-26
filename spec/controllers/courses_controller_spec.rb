@@ -32,9 +32,10 @@ RSpec.describe CoursesController, type: :controller do
     }
   end
 
+  let(:course) {course = Course.create!(valid_attributes)}
+
   describe 'GET #index' do
     it 'assigns @courses' do
-      course = Course.create!(valid_attributes)
       get :index
       expect(assigns(:courses)).to eq([ course ])
     end
@@ -47,13 +48,18 @@ RSpec.describe CoursesController, type: :controller do
 
   describe 'GET #show' do
     it 'assigns @course' do
-      course = Course.create!(valid_attributes)
       get :show, params: { id: course.id }
       expect(assigns(:course)).to eq(course)
     end
 
+    it 'assigns @units' do
+      unit1 = course.units.create!(unit_name: 'Unit 1', unit_content: 'Content of Unit 1')
+      unit2 = course.units.create!(unit_name: 'Unit 2', unit_content: 'Content of Unit 2')
+      get :show, params: { id: course.id }
+      expect(assigns(:units)).to match_array([unit1, unit2])
+    end
+
     it 'renders the show template' do
-      course = Course.create!(valid_attributes)
       get :show, params: { id: course.id }
       expect(response).to render_template(:show)
     end
@@ -113,13 +119,11 @@ RSpec.describe CoursesController, type: :controller do
 
   describe 'GET #edit' do
     it 'assigns @course' do
-      course = Course.create!(valid_attributes)
       get :edit, params: { id: course.id }
       expect(assigns(:course)).to eq(course)
     end
 
     it 'renders the edit template' do
-      course = Course.create!(valid_attributes)
       get :edit, params: { id: course.id }
       expect(response).to render_template(:edit)
     end
@@ -161,14 +165,13 @@ RSpec.describe CoursesController, type: :controller do
 
   describe 'DELETE #destroy' do
     it 'deletes the course' do
-      course = Course.create!(valid_attributes)
+      expect(Course.exists?(course.id)).to be true
       expect {
         delete :destroy, params: { id: course.id }
       }.to change(Course, :count).by(-1)
     end
 
     it 'redirects to the root path' do
-      course = Course.create!(valid_attributes)
       delete :destroy, params: { id: course.id }
       expect(response).to redirect_to(root_path)
     end

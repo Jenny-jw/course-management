@@ -1,20 +1,23 @@
-<li id="unit_<%= unit.id %>" class="ui-state-default">
-  <p>
-    <strong><%= unit.unit_name %></strong><br>
-  </p>
-  <p>
-    <strong>Description: </strong> <%= unit.unit_description %><br>
-  </p>
-  <p>
-    <strong>Content: </strong> <%= unit.unit_content %><br>
-  </p>
-  <ul>
-    <li><%= link_to "Edit Unit", edit_course_unit_path(@course, unit) %></li>
-    <li><%= link_to "Delete Unit", course_unit_path(@course, unit),
-      method: :delete,
-      data: { confirm: "Are you sure you want to delete this unit?" },
-      turbo: false
-    %>
-    </li>
-  </ul>
-</li>
+<div>
+  <div class="d-flex justify-content-between">
+    <div>
+      <p>
+        <strong><%= unit.unit_name %></strong><br>
+      </p>
+      <p>
+        <strong>Description: </strong> <%= unit.unit_description %><br>
+      </p>
+      <p>
+        <strong>Content: </strong> <%= unit.unit_content %><br>
+      </p>
+    </div>
+    <div>
+      <%= link_to "Edit Unit", edit_course_unit_path(@course, unit), class: "btn btn-primary btn-sm me-2" %>
+      <%= link_to "Delete Unit", course_unit_path(@course, unit),
+        method: :delete,
+        data: { confirm: "Are you sure you want to delete this unit?" },
+        class: "btn btn-danger btn-sm",
+        turbo: false %>
+    </div>
+  </div>
+</div>

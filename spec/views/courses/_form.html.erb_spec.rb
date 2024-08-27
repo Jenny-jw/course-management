@@ -30,6 +30,6 @@ RSpec.describe "courses/_form.html.erb", type: :view do
   end
 
   it "renders the submit button" do
-    expect(rendered).to have_button('Create Course') # or 'Update Course' depending on the context
+    expect(rendered).to have_button('Save Course')
   end
 end

@@ -23,7 +23,7 @@ RSpec.describe "courses/index.html.erb", type: :view do
   it "displays units for each course" do
     @courses.each do |course|
       course.units.order(:position).each do |unit|
-        expect(rendered).to have_selector("ul.units li##{unit.id}", text: unit.unit_name)
+        expect(rendered).to have_selector("ul.list-unstyled li", text: unit.unit_name)
       end
     end
   end

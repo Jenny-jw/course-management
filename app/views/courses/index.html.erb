@@ -10,9 +10,9 @@
                         <%= link_to course.course_name, course, class: "text-decoration-none text-primary" %>
                     </h5>
                 </div>
-                <div class="card-body">
+                <div class="card-body mb-1">
                     <% if course.units.any? %>
-                        <ul class="list-unstyled" data-update-url="<%= sort_course_units_path(course) %>">
+                        <ul class="list-unstyled mb-0" data-update-url="<%= sort_course_units_path(course) %>">
                             <% course.units.order(:position).each do |unit| %>
                             <li class="ms-3">
                                 <%= unit.unit_name %>
@@ -20,7 +20,7 @@
                             <% end %>
                         </ul>
                     <% else %>
-                        <p class="text-muted">No units available for this course.</p>
+                        <p class="text-muted mb-0">No units available for this course.</p>
                     <% end %>
                 </div>
             </div>

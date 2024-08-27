@@ -20,7 +20,7 @@ RSpec.describe "units/_unit.html.erb", type: :view do
   end
 
   it "displays the unit name" do
-    expect(rendered).to have_selector("strong", text: @unit.unit_name)
+    expect(rendered).to have_selector("h5", text: @unit.unit_name)
   end
 
   it "displays the unit description" do

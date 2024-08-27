@@ -27,8 +27,8 @@
 
   <hr>
 
-  <div class="mb-4">
-    <h2 class="h5">Units</h2>
+  <div class="mt-4 mb-4">
+    <h2 class="h5 mb-3">Units</h2>
     <ul id="sortable" class="list-unstyled" data-url="<%= sort_course_units_path(@course) %>">
       <% @units.order(:position).each do |unit| %>
         <div id="unit_<%= unit.id %>" data-id="<%= unit.id %>" class="border rounded p-3 mb-2 ui-state-default">

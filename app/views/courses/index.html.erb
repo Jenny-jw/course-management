@@ -1,4 +1,5 @@
 <h1>List of courses</h1>
+<h5>Click the course name to see more details about the course and its units' information.</h5>
 
 <ul>
     <% @courses.each do |course| %>
@@ -21,4 +22,4 @@
     <% end %>
 </ul>
 
-<%= link_to "Add a Course", new_course_path %>
+<%= link_to "Add a Course", new_course_path, class: "btn btn-primary" %>

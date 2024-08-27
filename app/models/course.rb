@@ -14,6 +14,6 @@ class Course < ApplicationRecord
 
   validates :course_description,
             length: { maximum: 500 },
-            format: { with: /\A[a-zA-Z0-9\s.,!?]+\z/, message: "only allows letters, numbers, whitespaces, and punctuation" },
+            format: { with: /\A[a-zA-Z0-9\s.,!?-]+\z/, message: "only allows letters, numbers, whitespaces, and punctuation" },
             allow_blank: true
 end

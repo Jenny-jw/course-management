@@ -16,7 +16,6 @@ production:
   <<: *default
   adapter: postgresql
   encoding: unicode
-  port: <%= ENV.fetch("PG_PORT") { 5432 } %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   database: <%= ENV['DATABASE_NAME'] %>
   host: <%= ENV['DATABASE_HOST'] %>

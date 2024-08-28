@@ -102,6 +102,10 @@ GEM
       irb (~> 1.10)
       reline (>= 0.3.8)
     diff-lcs (1.5.1)
+    dotenv (3.1.2)
+    dotenv-rails (3.1.2)
+      dotenv (= 3.1.2)
+      railties (>= 6.1)
     drb (2.2.1)
     error_highlight (0.6.0)
     erubi (1.13.0)
@@ -159,6 +163,7 @@ GEM
     parser (3.3.4.2)
       ast (~> 2.4.1)
       racc
+    pg (1.5.7)
     psych (5.1.2)
       stringio
     public_suffix (6.0.1)
@@ -318,11 +323,13 @@ DEPENDENCIES
   brakeman
   capybara
   debug
+  dotenv-rails
   error_highlight (>= 0.4.0)
   importmap-rails
   jbuilder
   jquery-rails
   jquery-ui-rails
+  pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.2.0)
   rails-controller-testing

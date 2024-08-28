@@ -16,9 +16,9 @@ production:
   <<: *default
   adapter: postgresql
   encoding: unicode
-  database: <%= ENV.fetch("PG_DATABASE") { "your_production_db_name" } %>
-  username: <%= ENV.fetch("PG_USERNAME") { "your_production_db_user" } %>
-  password: <%= ENV.fetch("PG_PASSWORD") { "your_production_db_password" } %>
-  host: <%= ENV.fetch("PG_HOST") { "your_production_db_host" } %>
+  database: <%= ENV.fetch("PG_DATABASE") %>
+  username: <%= ENV.fetch("PG_USERNAME") %>
+  password: <%= ENV.fetch("PG_PASSWORD") %>
+  host: <%= ENV.fetch("PG_HOST") %>
   port: <%= ENV.fetch("PG_PORT") { 5432 } %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>

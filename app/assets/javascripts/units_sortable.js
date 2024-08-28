@@ -2,7 +2,6 @@ $(function () {
   $("#sortable").sortable({
     update: function (event, ui) {
       var sortedIDs = $(this).sortable("toArray", { attribute: "data-id" });
-      // $.post($("#sortable").data("url"), $(this).sortable("serialize"));
       $.ajax({
         url: $(this).data("url"),
         type: "PATCH", // Use PATCH for updating resources

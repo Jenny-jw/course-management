@@ -1,3 +1,4 @@
+ruby '3.1.0'
 source "https://rubygems.org"
 
 # Rails and core gems

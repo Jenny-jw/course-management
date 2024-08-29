@@ -47,47 +47,23 @@
 
 `bin/rails server`
 
+Note：在`root/courses/{course_id}`頁面，可以透過 drag and drop 改變一個 course 中 units 的順序，如果要在`root`看到 units 的改動，需要直接更改 URL（把`root/courses/{course_id}`手動改成`root`）
+
 ## How to run the test suite
 
 `bundle exec rspec`
 
 ## Database Configuration
 
-This application uses PostgreSQL for the production environment and SQLite3 for development and test environments.
+This application uses **PostgreSQL** for the production environment and **SQLite3** for development and test environments.
 
-### Environment Variables
+## App URL
 
-For production, set the following environment variables:
+[Course Management App](https://course-management-6nfp.onrender.com)
 
-Example configuration for Koyeb:
+Note：在`root/courses/{course_id}`頁面，可以透過 drag and drop 改變一個 course 中 units 的順序，如果要在`root`看到 units 的改動，需要直接更改 URL（把`root/courses/{course_id}`手動改成`root`）
 
-- `PG_DATABASE`: your_database_name
-- `PG_USERNAME`: your_username
-- `PG_PASSWORD`: your_password
-- `PG_HOST`: your_host
-- `PG_PORT`: 5432
-
-### Local Development
-
-For local development, you can use SQLite3. Ensure you have the `dotenv-rails` gem installed and set up your local `.env` file with appropriate values for development and testing.
-
-Example `.env` file for local development:
-
-```bash
-PG_DATABASE=your_database_name
-PG_USERNAME=your_username
-PG_PASSWORD=your_password
-PG_HOST=your_host
-PG_PORT=5432
-```
-
-## Deployment
-
-After deploying the application, run the following command to migrate the database:
-
-```bash
-bundle exec rake db:migrate RAILS_ENV=production
-```
+I deployed my app on Render. This is my reference: [Deploying Ruby on Rails on Render](https://docs.render.com/deploy-rails).
 
 ## Project Structure
 
@@ -152,6 +128,8 @@ courseManagement                # 專案根目錄
 2. 在 units_sortable.js 使用 ajax request 而非 HTTP request。
    Requests 是在背景中進行，通過動態更新 UI，只有頁面的相關部分更新，所以不需要整個頁面重載，讓 user experience 更加流暢。
 
+3. 一開始選擇使用 Koyeb 作為 deployment platform，但可能因為環境變數有錯、或是 Run command 有錯，所以我可以 build app、deploy app 時總是會有 network 相關的錯誤。之後改使用 Render 就沒有這個問題了。（在 Slack 有人建議可以使用 Fly.io，試用後發現要先綁定信用卡帳號，所以就沒有選擇這個平台。）
+
 ## 遇到的困難、問題，以及解決的方法
 
 1. 一開始沒有寫過 Ruby 語言，所以先拿 document 裡的範例練習，把範例的專案做過一次後就可以稍微理解 Ruby on rails project 的架構、也可以藉此發想如何把範例改寫成這次的專案。這是我參考的網站：[Getting Started with Rails](https://guides.rubyonrails.org/getting_started.html)
@@ -162,5 +140,3 @@ courseManagement                # 專案根目錄
    - 建立一個名為 UnitController 的 controller，Rails 會自動產生可以執行 CRUD 的 routes，例如 index, show, new, create, edit, update, destroy。
 
    透過多看範例、實作後可以更熟悉 Rails 的 convetion。
-
-3.

@@ -31,7 +31,7 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 
   # RSpec and testing tools
-  gem "rspec-rails", "~> 6.0"
+  gem "rspec-rails", "~> 7.0"
   gem "rails-controller-testing"
   gem "dotenv-rails"
 end

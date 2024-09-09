@@ -55,7 +55,7 @@ end
 # Production database configuration
 group :production do
   # Use PostgreSQL in production
-  gem "pg", "~> 1.1"
+  gem "pg", "~> 1.5"
 end
 
 # Optional gems
